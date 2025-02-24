@@ -2,7 +2,6 @@ package com.example.cr1pto.sampleweb.controller;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,23 +14,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.cr1pto.sampleweb.data.entities.Customer;
 import com.example.cr1pto.sampleweb.data.repositories.CustomerRepository;
+import com.example.cr1pto.sampleweb.services.CustomerService;
 
 @RestController
 public class CustomersController {
 
     private final CustomerRepository repository;
+    private CustomerService customerService;
 
-    public CustomersController(CustomerRepository customerRepository) {
+    public CustomersController(CustomerRepository customerRepository, CustomerService customerService) {
         this.repository = customerRepository;
+        this.customerService = customerService;
     }
 
     // Aggregate root
     // tag::get-aggregate-root[]
     @GetMapping("/customers")
     List<Customer> all() {
-        return ((Collection<Customer>) repository.findAll()).stream()
-                .toList();
-        // .collect(Collectors.toList());
+        return customerService.getCustomers();
     }
     // end::get-aggregate-root[]
 
@@ -56,6 +56,10 @@ public class CustomersController {
                 .map(customer -> {
                     customer.setFirstName(newCustomer.getFirstName());
                     customer.setLastName(newCustomer.getLastName());
+                    customer.setAddress1(newCustomer.getAddress1());
+                    customer.setAddress2(newCustomer.getAddress2());
+                    customer.setCity(newCustomer.getCity());
+                    customer.setState(newCustomer.getState());
                     return repository.save(customer);
                 })
                 .orElseGet(() -> {
@@ -66,5 +70,10 @@ public class CustomersController {
     @DeleteMapping("/customers/{id}")
     void deleteCustomer(@PathVariable Long id) {
         repository.deleteById(id);
+    }
+
+    @DeleteMapping("/customers")
+    void deleteAllCustomers() {
+        repository.deleteAll();
     }
 }
