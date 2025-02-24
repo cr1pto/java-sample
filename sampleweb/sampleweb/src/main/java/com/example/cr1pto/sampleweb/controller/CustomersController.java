@@ -1,6 +1,5 @@
 package com.example.cr1pto.sampleweb.controller;
 
-import java.util.Collection;
 import java.util.List;
 
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
