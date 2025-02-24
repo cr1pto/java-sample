@@ -2,6 +2,7 @@ package com.example.cr1pto.sampleweb.controller;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,7 +29,9 @@ public class CustomersController {
     // tag::get-aggregate-root[]
     @GetMapping("/customers")
     List<Customer> all() {
-        return ((Collection<Customer>) repository.findAll()).stream().toList();
+        return ((Collection<Customer>) repository.findAll()).stream()
+                .toList();
+        // .collect(Collectors.toList());
     }
     // end::get-aggregate-root[]
 
