@@ -53,6 +53,16 @@ public class IntegrationsController {
                 .orElseThrow(() -> new NotFoundException());
     }
 
+    @PutMapping("/integrations/{id}/active")
+    Integration toggleActiveStatus(@PathVariable Long id, @RequestParam boolean state) throws NotFoundException {
+        return repository.findById(id)
+                .map(integration -> {
+                    integration.setActive(state);
+                    return repository.save(integration);
+                })
+                .orElseThrow(() -> new NotFoundException());
+    }
+
     @GetMapping("/searchIntegrations")
     List<Integration> findByDescriptionText(@RequestParam String descriptionText) {
         return repository.findByDescriptionContaining(descriptionText).stream().toList();
