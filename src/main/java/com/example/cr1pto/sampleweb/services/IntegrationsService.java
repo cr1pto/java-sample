@@ -37,7 +37,7 @@ public class IntegrationsService {
         return integrationsRepository.findByName(name);
     }
 
-    public Integration getIntegrationByDescription(String description) {
-        return integrationsRepository.findByDescriptionText(description);
+    public List<Integration> getIntegrationByDescription(String description) {
+        return integrationsRepository.findByDescriptionContaining(description);
     }
 }

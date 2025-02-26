@@ -16,5 +16,5 @@ public interface IntegrationsRepository extends CrudRepository<Integration, Long
 
     Integration findById(long id);
 
-    Integration findByDescriptionText(String textToFind);
+    List<Integration> findByDescriptionContaining(String description);
 }

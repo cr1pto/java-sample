@@ -9,16 +9,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.cr1pto.sampleweb.data.entities.Integration;
 import com.example.cr1pto.sampleweb.data.entities.NullIntegration;
 import com.example.cr1pto.sampleweb.data.repositories.IntegrationsRepository;
-import com.example.cr1pto.sampleweb.services.IntegrationsService;
 
 @RestController
 public class IntegrationsController {
-    private IntegrationsService integrationsService;
     private IntegrationsRepository repository;
 
     public IntegrationsController(IntegrationsRepository repository) {
@@ -43,7 +42,7 @@ public class IntegrationsController {
         if (newIntegration == null) {
             return new NullIntegration();
         }
-        return integrationsService.save(newIntegration);
+        return repository.save(newIntegration);
     }
 
     // Single item
@@ -52,6 +51,11 @@ public class IntegrationsController {
     Integration one(@PathVariable Long id) throws NotFoundException {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException());
+    }
+
+    @GetMapping("/searchIntegrations")
+    List<Integration> findByDescriptionText(@RequestParam String descriptionText) {
+        return repository.findByDescriptionContaining(descriptionText).stream().toList();
     }
 
     @PutMapping("/integrations/{id}")
