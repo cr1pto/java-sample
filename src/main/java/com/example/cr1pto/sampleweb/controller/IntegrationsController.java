@@ -1,5 +1,6 @@
 package com.example.cr1pto.sampleweb.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
@@ -65,6 +66,9 @@ public class IntegrationsController {
 
     @GetMapping("/searchIntegrations")
     List<Integration> findByDescriptionText(@RequestParam String descriptionText) {
+        if (descriptionText == null || descriptionText.isEmpty()) {
+            return new ArrayList<Integration>();
+        }
         return repository.findByDescriptionContaining(descriptionText).stream().toList();
     }
 
