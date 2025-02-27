@@ -7,7 +7,7 @@ It illustrates the following topics:
 - Understanding of the core Spring Boot ecosystem
 - How dependency injection works in Java
 - How to work with entities in Spring JPA Persistence
-- How to build RESTful API
+- How to build a RESTful API in Java
 
 A docker compose file has also been added and is a pre-generated template from the Spring Initializr tool from Spring Boot.  
 
