@@ -14,6 +14,18 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String email;
+    private String address1;
+    private String address2;
+    private String city;
+    private String state;
+    private String zip;
+    private String ssn;
+    private String dob;
+    private String dl;
+    private String dlState;
+    private String dlExp;
+    private String dlClass;
+    private String phone;
 
     public String getEmail() {
         return email;
@@ -23,8 +35,6 @@ public class Customer {
         this.email = email;
     }
 
-    private String phone;
-
     public String getPhone() {
         return phone;
     }
@@ -33,8 +43,6 @@ public class Customer {
         this.phone = phone;
     }
 
-    private String address1;
-
     public String getAddress1() {
         return address1;
     }
@@ -42,8 +50,6 @@ public class Customer {
     public void setAddress1(String address1) {
         this.address1 = address1;
     }
-
-    private String address2;
 
     public String getAddress2() {
         return address2;
@@ -125,29 +131,9 @@ public class Customer {
         this.dlClass = dlClass;
     }
 
-    private String city;
-    private String state;
-    private String zip;
-    private String ssn;
-    private String dob;
-    private String dl;
-    private String dlState;
-    private String dlExp;
-    private String dlClass;
-
-    protected Customer() {
-    }
-
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-    }
-
-    @Override
-    public String toString() {
-        return String.format(
-                "Customer[id=%d, firstName='%s', lastName='%s']",
-                id, firstName, lastName);
     }
 
     public Long getId() {
@@ -168,5 +154,12 @@ public class Customer {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Customer[id=%d, firstName='%s', lastName='%s']",
+                id, firstName, lastName);
     }
 }
