@@ -22,7 +22,6 @@ public class IntegrationsController {
     private IntegrationsRepository repository;
 
     public IntegrationsController(IntegrationsRepository repository) {
-        super();
         this.repository = repository;
     }
 
