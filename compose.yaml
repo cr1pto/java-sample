@@ -1,4 +1,13 @@
 services:
+  java:
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: src/Dockerfile.alpine
+    env_file:
+      - ./envs/.env.docker
+    ports:
+      - '8080'
   postgres:
     image: 'postgres:latest'
     environment:
