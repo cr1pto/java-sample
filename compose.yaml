@@ -8,6 +8,25 @@ services:
   #     - ./envs/.env.docker
   #   ports:
   #     - '8080'
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: always
+    env_file:
+      - ./envs/containerized/pgadmin.env
+    ports:
+      - 5001:80
+      - 5002:443
+    volumes:
+      - ./config/postgres/certs/server.cert:/certs/server.cert:ro
+      - ./config/postgres/certs/postgres_cert.key:/certs/server.key:ro
+    links:
+      - "postgres:postgres"
+    # networks:
+    #   - api
+    # networks:
+    #   - traefiknet
+
   postgres:
     image: 'postgres:latest'
     environment:
