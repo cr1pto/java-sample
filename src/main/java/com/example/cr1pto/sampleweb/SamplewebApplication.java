@@ -19,7 +19,13 @@ public class SamplewebApplication {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**") // Applies to all endpoints
-						.allowedOrigins("http://localhost:5173", "http://allowed-origin-2.com") // Whitelist specific
+						.allowedOrigins(
+							"http://localhost:5173", 
+							"http://localhost:3000",
+							"https://localhost:3000",
+							"http://localhost:4200",
+							"https://localhost:4200",
+						"http://allowed-origin-2.com") // Whitelist specific
 																								// origins
 						.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Allowed HTTP methods
 						.allowedHeaders("*") // Allows all headers
