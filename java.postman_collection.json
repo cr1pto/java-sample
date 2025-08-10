@@ -44,7 +44,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"session_name\": \"Richard's session\",\n    \"session_description\": \"dis funna be awesome\",\n    \"session_length\": 45\n}"
+							"raw": "{\n    \"session_name\": \"cr1pto's session\",\n    \"session_description\": \"dis funna be awesome\",\n    \"session_length\": 45\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/api/v1/sessions",
@@ -129,7 +129,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/conference-0.0.1-SNAPSHOT/user?firstname=rich&lastname=del&age=10",
+							"raw": "http://localhost:8080/conference-0.0.1-SNAPSHOT/user?firstname=cr1p&lastname=to&age=10",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -142,11 +142,11 @@
 							"query": [
 								{
 									"key": "firstname",
-									"value": "rich"
+									"value": "cr1p"
 								},
 								{
 									"key": "lastname",
-									"value": "del"
+									"value": "to"
 								},
 								{
 									"key": "age",
@@ -167,12 +167,12 @@
 							"formdata": [
 								{
 									"key": "firstname",
-									"value": "rich",
+									"value": "cr1p",
 									"type": "text"
 								},
 								{
 									"key": "lastname",
-									"value": "del",
+									"value": "to",
 									"type": "text"
 								},
 								{
