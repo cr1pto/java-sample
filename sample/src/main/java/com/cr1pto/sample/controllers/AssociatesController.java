@@ -40,6 +40,10 @@ public class AssociatesController {
 
         var response = this.commonService.getAssociate(lastName);
 
+        if (response == null) {
+            return ResponseEntity.ok().body(new AssociateResponse());
+        }
+
         return ResponseEntity.ok().body(response);
     }
 

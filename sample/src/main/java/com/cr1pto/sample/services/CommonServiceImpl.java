@@ -95,6 +95,12 @@ public class CommonServiceImpl implements CommonService {
     public AssociateResponse getAssociate(String lastName) {
 
         var entity = this.associateRepository.findByLastName(lastName);
+
+        if(entity == null) {
+            //TODO: implement null object pattern or better error handling
+            return new AssociateResponse();
+        }
+
         var response = new AssociateResponse();
 
         response.setFirstName(entity.getFirstName());
