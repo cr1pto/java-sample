@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "SampleApplication",
+      "request": "launch",
+      "mainClass": "com.cr1pto.sample.SampleApplication",
+      "projectName": ""
+    },
+    {
+      "type": "java",
       "name": "Launch Java Program",
       "request": "launch",
       "mainClass": ""
