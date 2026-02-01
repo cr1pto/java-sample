@@ -36,11 +36,11 @@ public class AssociatesController {
 
     @GetMapping("associates/{lastName}")
     @ResponseBody
-    public ResponseEntity<List<AssociateResponse>> getAssociate(@PathVariable String lastName) {
+    public ResponseEntity<AssociateResponse> getAssociate(@PathVariable String lastName) {
 
-        var response = this.commonService.getAllAssociates();
+        var response = this.commonService.getAssociate(lastName);
 
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok().body(response);
     }
 
     @PostMapping("associates")
