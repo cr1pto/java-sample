@@ -2,6 +2,8 @@
 
 This repository is a representation of my knowledge of how to build applications in Java.
 
+The inspiration for this API is Walmart.  
+
 It illustrates the following topics:
 
 - Understanding of the core Spring Boot ecosystem
